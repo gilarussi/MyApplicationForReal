@@ -37,7 +37,7 @@ public class AuthenticationActivity extends AppCompatActivity {
 
             }
         });
-        binding.login.setOnClickListener(new View.OnClickListener() {
+        binding.signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 name=binding.name.getText().toString();
@@ -55,7 +55,7 @@ public class AuthenticationActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (FirebaseAuth.getInstance().getCurrentUser()!=null){
-            startActivity(new Intent(AuthenticationActivity.this,MainActivity.class));
+            startActivity(new Intent(AuthenticationActivity.this,HomePageFragment.class));
             finish();
         }
     }
@@ -65,14 +65,17 @@ public class AuthenticationActivity extends AppCompatActivity {
             @Override
             public void onSuccess(AuthResult authResult) {
 
-                startActivity(new Intent(AuthenticationActivity.this,MainActivity.class));
+                startActivity(new Intent(AuthenticationActivity.this,HomePageFragment.class));
                 finish();
 
             }
         });
     }
     private void signUp() {
-        FirebaseAuth .getInstance().createUserWithEmailAndPassword(email.trim(),password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+        FirebaseAuth
+                .getInstance()
+                .createUserWithEmailAndPassword(email.trim(),password)
+                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
                 UserProfileChangeRequest userProfileChangeRequest= new UserProfileChangeRequest.Builder().setDisplayName(name).build();
@@ -80,7 +83,7 @@ public class AuthenticationActivity extends AppCompatActivity {
                 firebaseUser.updateProfile(userProfileChangeRequest);
                 UserModel userModel=new UserModel(FirebaseAuth.getInstance().getUid(), name,email,password);
                 databaseReference.child(FirebaseAuth.getInstance().getUid()).setValue(userModel);
-                startActivity(new Intent(AuthenticationActivity.this,MainActivity.class));
+                startActivity(new Intent(AuthenticationActivity.this,HomePageFragment.class));
                 finish();
 
             }
