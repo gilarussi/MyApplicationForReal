@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                     replaceFragment(new HomePageFragment());
                     break;
                 case R.id.profile:
-                    replaceFragment(new ProfileFragment());
+                    replaceFragment(new EditResumeFragment());
                     break;
                 case R.id.chat:
                     replaceFragment(new ChatFragment());
