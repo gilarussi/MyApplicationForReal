@@ -80,6 +80,8 @@ public class EditResumeFragment extends Fragment {
 
                 // Navigate back to the previous fragment or activity
                 // ...
+
+
             }
         });
     }

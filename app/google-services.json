@@ -39,7 +39,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:992905273563:android:2a2dadd2b82a305cf5acfe",
         "android_client_info": {
-          "package_name": "com.example.myapplicationforreal"
+          "package_name": "com.example.compartmentalisation"
         }
       },
       "oauth_client": [
@@ -68,7 +68,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:992905273563:android:cc5bb4d26a284a74f5acfe",
         "android_client_info": {
-          "package_name": "com.example.myapplicationfragments"
+          "package_name": "com.example.compartmentalisation"
         }
       },
       "oauth_client": [
